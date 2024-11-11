@@ -16,7 +16,7 @@ document.body.appendChild(renderer.domElement);
 
 // Setup video
 const video = document.createElement('video');
-video.src = 'https://domae-space.github.io/3d-viewer-project/public/videos/domaevideo.mp4';
+video.src = 'https://domae-space.github.io/3d-viewer-project/public/video/domaevideo.mp4';
 video.loop = true;
 video.muted = true;
 video.playsInline = true;
