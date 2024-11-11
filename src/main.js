@@ -42,60 +42,54 @@ function createRetroPC() {
 
     // Classic PC colors
     const caseColor = 0xe0dfd5;
-    const screenBorder = 0x696969;
-    const screenBezel = 0x404040;
-    const screen = 0x0078d7;
-    const keyboard = 0x404040;
-    const keyboardDetail = 0x696969;
-    const topRidge = 0x696969;
-    const stand = 0xe0dfd5;
-    const standBase = 0xe0dfd5;
+    const darkGray = 0x404040;
+    const screenBorder = 0x2f2f2f;
 
-    // Monitor body
+    // Monitor body (more boxy and angular)
     const monitorBody = new THREE.Mesh(
-        new THREE.BoxGeometry(4, 3, 1.5),
+        new THREE.BoxGeometry(4.2, 3.2, 1.8),
         new THREE.MeshPhongMaterial({ color: caseColor })
     );
 
-    // Screen bezel (the inset part around the screen)
+    // Screen bezel (thicker and more pronounced)
     const bezel = new THREE.Mesh(
-        new THREE.BoxGeometry(3.6, 2.6, 0.1),
+        new THREE.BoxGeometry(3.8, 2.8, 0.2),
         new THREE.MeshPhongMaterial({ color: screenBorder })
     );
-    bezel.position.z = 0.7;
+    bezel.position.z = 0.8;
 
-    // Screen with video
-    const screen = new THREE.Mesh(
-        new THREE.PlaneGeometry(3.2, 2.2),
+    // Screen with video (renamed from 'screen' to 'displayScreen')
+    const displayScreen = new THREE.Mesh(
+        new THREE.PlaneGeometry(3.4, 2.4),
         new THREE.MeshBasicMaterial({ map: videoTexture })
     );
-    screen.position.z = 0.76;
+    displayScreen.position.z = 0.91;
 
     // Monitor details (those classic ridges on the case)
     const topRidge = new THREE.Mesh(
         new THREE.BoxGeometry(4, 0.1, 1.5),
-        new THREE.MeshPhongMaterial({ color: topRidge })
+        new THREE.MeshPhongMaterial({ color: darkGray })
     );
     topRidge.position.y = 1.5;
 
     // Monitor stand (that chunky adjustable part)
     const stand = new THREE.Mesh(
         new THREE.BoxGeometry(1.2, 1.2, 1.2),
-        new THREE.MeshPhongMaterial({ color: stand })
+        new THREE.MeshPhongMaterial({ color: caseColor })
     );
     stand.position.y = -2;
 
     // Stand base (wide and stable)
     const standBase = new THREE.Mesh(
         new THREE.BoxGeometry(2.5, 0.3, 1.5),
-        new THREE.MeshPhongMaterial({ color: standBase })
+        new THREE.MeshPhongMaterial({ color: caseColor })
     );
     standBase.position.y = -2.75;
 
     // Keyboard (chunky with high profile keys)
     const keyboard = new THREE.Mesh(
         new THREE.BoxGeometry(3.5, 0.4, 1.2),
-        new THREE.MeshPhongMaterial({ color: keyboard })
+        new THREE.MeshPhongMaterial({ color: darkGray })
     );
     keyboard.position.z = 2;
     keyboard.position.y = -2.9;
@@ -104,7 +98,7 @@ function createRetroPC() {
     // Add some key details to keyboard
     const keyboardDetail = new THREE.Mesh(
         new THREE.BoxGeometry(3.3, 0.1, 1),
-        new THREE.MeshPhongMaterial({ color: keyboardDetail })
+        new THREE.MeshPhongMaterial({ color: darkGray })
     );
     keyboardDetail.position.z = 2;
     keyboardDetail.position.y = -2.7;
@@ -113,7 +107,7 @@ function createRetroPC() {
     // Add all parts
     computer.add(monitorBody);
     computer.add(bezel);
-    computer.add(screen);
+    computer.add(displayScreen);
     computer.add(topRidge);
     computer.add(stand);
     computer.add(standBase);
